@@ -1,0 +1,11 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Login==0.6.3
+Werkzeug==2.3.7
+PyPDF2==3.0.1
+python-docx==0.8.11
+matplotlib==3.7.2
+seaborn==0.12.2
+nltk==3.8.1
+textstat==0.7.3
+spacy==3.6.1

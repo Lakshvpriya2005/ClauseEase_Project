@@ -1,0 +1,20 @@
+Original Document: Untitled_document.pdf
+==================================================
+
+SIMPLIFIED VERSION:
+--------------------
+CONSULTING AGREEMENT This Consulting Agreement (Agreement) is entered into on this 15th day of September 2025 by. between Delta Consulting LLC (Consultant). Beta Technologies Inc. (Client). 1. Scope of Services Consultant shall give advisory and consulting services as outlined in Schedule A attached hereto (Services). 2. Term This Agreement shall begin on the Effective Date. remain in effect for a period of 6 months unless terminated earlier in accordance with this Agreement. 3. Compensation Client shall pay Consultant the fees described in Schedule B. Payment shall be due within 15 days of receiving the invoice. 4. Confidentiality Both parties agree to keep the confidentiality of all sensitive information shared during the course of this Agreement. 5. Termination Either party may end this Agreement for any reason upon thirty (30) days written notice to the other party. 6. Indemnification Each party shall indemnify. hold the other harmless from any losses, claims,. damages arising out of its negligence. willful misconduct. 7. Governing Law This Agreement will be governed by and construed in accordance with the laws of the State of New York, USA. IN WITNESS WHEREOF, the parties hereto have executed this Agreement as of the Effective Date. Consultant: Delta Consulting LLC Client: Beta Technologies Inc
+
+==================================================
+DETECTED CLAUSES:
+--------------------
+1. CONSULTING AGREEMENT This Consulting Agreement (Agreement) is entered into on this 15th day of September 2025 by and between Delta Consulting LLC (Consultant) and Beta Technologies Inc
+2. Scope of Services Consultant shall provide advisory and consulting services as outlined in Schedule A attached hereto (Services)
+3. Term This Agreement shall begin on the Effective Date and remain in effect for a period of 6 months unless terminated earlier in accordance with this Agreement
+4. Compensation Client shall pay Consultant the fees described in Schedule B
+5. Payment shall be due within 15 days of receiving the invoice
+6. Confidentiality Both parties agree to maintain the confidentiality of all sensitive information shared during the course of this Agreement
+7. Termination Either party may terminate this Agreement for any reason upon thirty (30) days written notice to the other party
+8. Indemnification Each party shall indemnify and hold the other harmless from any losses, claims, or damages arising out of its negligence or willful misconduct
+9. Governing Law This Agreement shall be governed by and construed in accordance with the laws of the State of New York, USA
+10. IN WITNESS WHEREOF, the parties hereto have executed this Agreement as of the Effective Date

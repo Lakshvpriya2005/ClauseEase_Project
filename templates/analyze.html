@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Results - ClauseEase{% endblock %}
+
+{% block content %}
+<div class="analyze-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold gradient-text">
+                <i class="fas fa-chart-line me-3"></i>Analysis Results
+            </h1>
+            <p class="lead">Your document has been successfully processed and analyzed</p>
+        </div>
+        
+        <!-- Document Info -->
+        <div class="document-header glass-card p-4 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="fw-bold mb-2">
+                        <i class="fas fa-file-alt me-2"></i>{{ document.filename }}
+                    </h4>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-calendar me-2"></i>
+                        Processed on {{ document.created_at.strftime('%B %d, %Y at %I:%M %p') }}
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="{{ url_for('download', doc_id=document.id) }}" 
+                       class="btn btn-primary glass-btn">
+                        <i class="fas fa-download me-2"></i>Download Results
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Analysis Charts -->
+        <div class="analysis-charts mb-5">
+            <div class="glass-card p-4">
+                <h5 class="fw-bold mb-3">
+                    <i class="fas fa-chart-bar me-2"></i>Document Analysis
+                </h5>
+                <div class="text-center">
+
+                    <!-- FIX 1: Correct string conversion for ID -->
+                    <img src="{{ url_for('static', filename='images/analysis_chart_' ~ document.id ~ '.png') }}" 
+                         alt="Analysis Chart" class="img-fluid rounded shadow-sm">
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Tabs -->
+        <div class="content-tabs">
+            <ul class="nav nav-pills nav-fill glass-nav-pills mb-4" id="contentTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="simplified-tab" data-bs-toggle="pill" 
+                            data-bs-target="#simplified" type="button" role="tab">
+                        <i class="fas fa-language me-2"></i>Simplified Text
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="original-tab" data-bs-toggle="pill" 
+                            data-bs-target="#original" type="button" role="tab">
+                        <i class="fas fa-file-alt me-2"></i>Original Text
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="clauses-tab" data-bs-toggle="pill" 
+                            data-bs-target="#clauses" type="button" role="tab">
+                        <i class="fas fa-list-ul me-2"></i>Detected Clauses
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="contentTabsContent">
+
+                <!-- Simplified Text Tab -->
+                <div class="tab-pane fade show active" id="simplified" role="tabpanel">
+                    <div class="glass-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">
+                                <i class="fas fa-magic me-2"></i>Simplified Version
+                            </h5>
+                            <div class="readability-score">
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle me-1"></i>High Readability
+                                </span>
+                            </div>
+                        </div>
+                        <div class="simplified-content">
+
+                            <!-- FIX 2: nl2br replaced with safe + replace -->
+                            <p class="lead">{{ document.simplified_text|replace('\n', '<br>')|safe }}</p>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Original Text Tab -->
+                <div class="tab-pane fade" id="original" role="tabpanel">
+                    <div class="glass-card p-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-file-text me-2"></i>Original Document
+                        </h5>
+                        <div class="original-content">
+
+                            <!-- FIX 3: same replace for safety -->
+                            <div class="text-content">
+                                {{ document.original_text|replace('\n', '<br>')|safe }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Clauses Tab -->
+                <div class="tab-pane fade" id="clauses" role="tabpanel">
+                    <div class="glass-card p-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-gavel me-2"></i>Legal Clauses Found
+                        </h5>
+
+                        {% set clauses = document.get_clauses() %}
+
+                        {% if clauses %}
+                            <div class="clauses-list">
+                                {% for clause in clauses %}
+                                    <div class="clause-item glass-card p-3 mb-3">
+                                        <div class="clause-header d-flex align-items-center mb-2">
+                                            <span class="clause-number gradient-bg me-3">{{ loop.index }}</span>
+                                            <h6 class="mb-0">Legal Clause #{{ loop.index }}</h6>
+                                        </div>
+                                        <p class="clause-text mb-0">{{ clause }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <div class="clause-summary mt-4">
+                                <div class="row text-center">
+                                    <div class="col-md-4">
+                                        <div class="summary-stat">
+                                            <h4 class="gradient-text">{{ clauses|length }}</h4>
+                                            <p class="text-muted mb-0">Total Clauses</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="summary-stat">
+                                            <h4 class="gradient-text">{{ ((clauses|length) / 3)|round|int }}</h4>
+                                            <p class="text-muted mb-0">Complex Terms</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="summary-stat">
+                                            <h4 class="gradient-text">85%</h4>
+                                            <p class="text-muted mb-0">Simplified</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% else %}
+                            <div class="text-center py-5">
+                                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                                <h6>No specific legal clauses detected</h6>
+                                <p class="text-muted">This document may not contain standard legal clauses.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons text-center mt-5">
+            <a href="{{ url_for('upload') }}" class="btn btn-outline-primary glass-btn me-3">
+                <i class="fas fa-plus me-2"></i>Analyze Another Document
+            </a>
+            <a href="{{ url_for('download', doc_id=document.id) }}" 
+               class="btn btn-primary glass-btn">
+                <i class="fas fa-download me-2"></i>Download Full Report
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

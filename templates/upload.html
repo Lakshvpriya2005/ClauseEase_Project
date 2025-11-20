@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Document - ClauseEase{% endblock %}
+
+{% block content %}
+<div class="upload-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bold gradient-text">
+                        <i class="fas fa-cloud-upload-alt me-3"></i>Upload Document
+                    </h1>
+                    <p class="lead">Upload your legal document for AI-powered analysis and simplification</p>
+                </div>
+                
+                <div class="upload-card glass-card p-5">
+                    <form method="POST" enctype="multipart/form-data" id="uploadForm">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content text-center">
+                                <i class="fas fa-file-upload upload-icon gradient-bg mb-3"></i>
+                                <h5 class="fw-bold mb-3">Drag & Drop Your Document</h5>
+                                <p class="text-muted mb-3">or click to browse files</p>
+                                <input type="file" class="form-control d-none" id="file" name="file" 
+                                       accept=".pdf,.docx" required>
+                                <button type="button" class="btn btn-outline-primary glass-btn" 
+                                        onclick="document.getElementById('file').click()">
+                                    <i class="fas fa-folder-open me-2"></i>Browse Files
+                                </button>
+                            </div>
+                            
+                            <div class="file-info d-none" id="fileInfo">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-file-alt file-icon me-3"></i>
+                                        <div>
+                                            <h6 class="mb-1" id="fileName">Document.pdf</h6>
+                                            <small class="text-muted" id="fileSize">2.5 MB</small>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" 
+                                            onclick="clearFile()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="supported-formats mt-4">
+                            <h6 class="fw-bold mb-2">
+                                <i class="fas fa-info-circle me-2"></i>Supported Formats
+                            </h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="format-item glass-card p-3 mb-2">
+                                        <i class="fas fa-file-pdf text-danger me-2"></i>
+                                        <strong>PDF Documents</strong>
+                                        <small class="text-muted d-block">Portable Document Format</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="format-item glass-card p-3 mb-2">
+                                        <i class="fas fa-file-word text-primary me-2"></i>
+                                        <strong>Word Documents</strong>
+                                        <small class="text-muted d-block">Microsoft Word (.docx)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg glass-btn" id="analyzeBtn" disabled>
+                                <i class="fas fa-magic me-2"></i>Analyze Document
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Processing Modal -->
+                <div class="modal fade" id="processingModal" tabindex="-1" data-bs-backdrop="static">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content glass-card">
+                            <div class="modal-body text-center p-5">
+                                <div class="processing-animation mb-4">
+                                    <i class="fas fa-cog fa-spin fa-3x gradient-text"></i>
+                                </div>
+                                <h5 class="fw-bold mb-3">Processing Your Document</h5>
+                                <p class="text-muted mb-4">Our AI is analyzing your legal document...</p>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-animated gradient-bg" 
+                                         role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features Preview -->
+                <div class="features-preview mt-5">
+                    <h4 class="text-center mb-4 gradient-text">What happens next?</h4>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="preview-step glass-card p-3 text-center">
+                                <i class="fas fa-file-import step-icon gradient-bg mb-2"></i>
+                                <h6>Extract Text</h6>
+                                <small class="text-muted">AI extracts text from your document</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="preview-step glass-card p-3 text-center">
+                                <i class="fas fa-search step-icon gradient-bg mb-2"></i>
+                                <h6>Detect Clauses</h6>
+                                <small class="text-muted">Identify legal clauses and terms</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="preview-step glass-card p-3 text-center">
+                                <i class="fas fa-language step-icon gradient-bg mb-2"></i>
+                                <h6>Simplify Language</h6>
+                                <small class="text-muted">Convert to plain English</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="preview-step glass-card p-3 text-center">
+                                <i class="fas fa-chart-line step-icon gradient-bg mb-2"></i>
+                                <h6>Generate Analysis</h6>
+                                <small class="text-muted">Create visual insights</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="display-4 fw-bold gradient-text mb-4">
+                        <i class="fas fa-file-contract me-3"></i>ClauseEase
+                    </h1>
+                    <p class="lead mb-4">
+                        Transform complex legal documents into clear, understandable language with the power of AI.
+                        Simplify contracts, analyze clauses, and understand legal terms effortlessly.
+                    </p>
+                    <div class="hero-buttons">
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('upload') }}" class="btn btn-primary btn-lg glass-btn me-3">
+                                <i class="fas fa-upload me-2"></i>Upload Document
+                            </a>
+                        {% else %}
+                            <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg glass-btn me-3">
+                                <i class="fas fa-user-plus me-2"></i>Get Started
+                            </a>
+                            <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg glass-btn">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <div class="floating-card glass-card p-4">
+                        <h5><i class="fas fa-magic me-2"></i>AI Processing</h5>
+                        <div class="progress mb-2" style="height: 8px;">
+                            <div class="progress-bar gradient-bg" style="width: 85%"></div>
+                        </div>
+                        <small class="text-muted">Analyzing legal clauses...</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold gradient-text">
+                <i class="fas fa-sparkles me-3"></i>Key Features
+            </h2>
+            <p class="lead">Discover how ClauseEase transforms your legal document experience</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">AI-Powered Analysis</h5>
+                    <p class="text-muted">
+                        Advanced artificial intelligence analyzes complex legal language and identifies key clauses automatically.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Language Simplification</h5>
+                    <p class="text-muted">
+                        Transform complex legal jargon into plain English that everyone can understand and interpret.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Clause Detection</h5>
+                    <p class="text-muted">
+                        Automatically identify and categorize different types of legal clauses within your documents.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Visual Analytics</h5>
+                    <p class="text-muted">
+                        Get comprehensive charts and graphs showing document complexity and analysis results.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Multiple Formats</h5>
+                    <p class="text-muted">
+                        Support for PDF and DOCX files with seamless text extraction and processing capabilities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card glass-card h-100 p-4">
+                    <div class="feature-icon gradient-bg mb-3">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Easy Export</h5>
+                    <p class="text-muted">
+                        Download simplified versions of your documents with detected clauses and analysis results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-5">
+    <div class="container">
+        <div class="glass-card p-5">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="display-6 fw-bold gradient-text">98%</h3>
+                        <p class="text-muted">Accuracy Rate</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="display-6 fw-bold gradient-text">50+</h3>
+                        <p class="text-muted">Legal Terms Recognized</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="display-6 fw-bold gradient-text">5s</h3>
+                        <p class="text-muted">Average Processing Time</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="display-6 fw-bold gradient-text">24/7</h3>
+                        <p class="text-muted">Available</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
