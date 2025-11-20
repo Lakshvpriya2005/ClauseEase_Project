@@ -123,22 +123,22 @@ After analysis, ClauseEase generates a **simplified `.txt` contract** that users
 ## 📸 Screenshots
 
 > **NOTE:** Place all screenshot files inside:  
-`static/screenshots/`
+`screenshots/`
 
 ### 🏠 1. Home Page  
-![Homepage](static/screenshots/home_page.png)
+![Homepage](screenshots/home_page.png)
 
 ### 🔐 2. Login Page  
-![Login](static/screenshots/login_page.png)
+![Login](screenshots/login_page.png)
 
 ### 📤 3. Upload Document Page  
-![Upload](static/screenshots/upload_document_page.png)
+![Upload](screenshots/upload_document_page.png)
 
 ### 📊 4. Contract Analysis Result  
-![Result](static/screenshots/contract_analysis_result.png)
+![Result](screenshots/contract_analysis_result.png)
 
 ### 🛡️ 5. Admin Panel (Secure)  
-![Admin](static/screenshots/admin_panel_secure.png)
+![Admin](screenshots/admin_panel_secure.png)
 
 ---
 
