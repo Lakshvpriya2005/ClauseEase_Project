@@ -1,25 +1,25 @@
-# 📄 ClauseEase — AI-powered Contract Simplifier
+#  ClauseEase — AI-powered Contract Simplifier
 
 ClauseEase is an AI-enhanced web application that extracts, analyzes, simplifies, and summarizes legal clauses from PDF/DOCX documents.  
 It highlights detected clauses, legal terms, provides analytics, and allows users to download a simplified version of the contract.
 
 ---
 
-## ⭐ Key Features
+##  Key Features
 
-- 🔐 **User Authentication** (Register / Login)
-- 📤 **Upload PDF or DOCX files**
-- 🤖 **AI-based Clause Detection**
-- 📝 **Legal Term Recognition**
-- ✏️ **Plain-Language Simplification**
-- 📊 **Simple Visual Analytics** (word-count charts, clause summaries)
-- 📥 **Download Simplified Contract as `.txt`**
-- 🛡️ **Secure Admin Dashboard** (view users, uploaded documents, logs)
-- 🗂️ **History & Logs (Admin Only)**
+-  **User Authentication** (Register / Login)
+-  **Upload PDF or DOCX files**
+-  **AI-based Clause Detection**
+-  **Legal Term Recognition**
+-  **Plain-Language Simplification**
+-  **Simple Visual Analytics** (word-count charts, clause summaries)
+-  **Download Simplified Contract as `.txt`**
+-  **Secure Admin Dashboard** (view users, uploaded documents, logs)
+-  **History & Logs (Admin Only)**
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ClauseEase_Project/
 │── app.py
@@ -51,7 +51,7 @@ ClauseEase_Project/
 
 ---
 
-## 📦 Requirements
+##  Requirements
 
 **Python 3.11 Recommended**
 
@@ -75,7 +75,7 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
 
 ---
 
-## 🚀 How to Run the Project (Windows / VS Code)
+##  How to Run the Project (Windows / VS Code)
 
 ### 1️⃣ Open the project in VS Code  
 ### 2️⃣ Create & activate virtual environment
@@ -106,7 +106,7 @@ Then open:
 
 ---
 
-## 🔐 Admin Access (Important)
+##  Admin Access (Important)
 
 - Admin panel is meant only for **local machine usage**
 - Hardcoded admin email/password should be replaced with environment variables
@@ -114,40 +114,40 @@ Then open:
 
 ---
 
-## 📥 Downloaded Output
+## Downloaded Output
 
 After analysis, ClauseEase generates a **simplified `.txt` contract** that users can download.
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 > **NOTE:** Place all screenshot files inside:  
 `screenshots/`
 
-### 🏠 1. Home Page  
+###  1. Home Page  
 ![Homepage](screenshots/home_page.png)
 
-### 🔐 2. Login Page  
+###  2. Login Page  
 ![Login](screenshots/login_page.png)
 
-### 📤 3. Upload Document Page  
+###  3. Upload Document Page  
 ![Upload](screenshots/upload_document_page.png)
 
-### 📊 4. Contract Analysis Result  
+###  4. Contract Analysis Result  
 ![Result](screenshots/contract_analysis_result.png)
 
-### 🛡️ 5. Admin Panel (Secure)  
+###  5. Admin Panel (Secure)  
 ![Admin](screenshots/admin_panel_secure.png)
 
 ---
 
-## 📜 License
+##  License
 MIT License
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 
 Developed as a complete AI-Assisted Contract Analysis System.  
 Includes custom preprocessing, clause detection, legal term recognition & simplification modules.
